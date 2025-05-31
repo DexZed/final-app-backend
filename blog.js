@@ -59,7 +59,7 @@ const postRoutes = (postCollection, verifyToken) => {
 
     // Delete a post
     postRoute.delete("/deletePost/:id", verifyToken, async (req, res) => {
-        console.log("DELETE /api/deletePost", req.params.id);
+        //console.log("DELETE /api/deletePost", req.params.id);
 
         const { id } = req.params;
 
@@ -83,7 +83,7 @@ const postRoutes = (postCollection, verifyToken) => {
 
     // Get all posts or a single post
     postRoute.get("/getPost/:id?", verifyToken, async (req, res) => {
-        console.log("GET /api/getPost", req.params.id);
+        //console.log("GET /api/getPost", req.params.id);
 
         const { id } = req.params;
 
