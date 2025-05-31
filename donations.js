@@ -163,7 +163,7 @@ const donationsRoutes = (donationCollection, verifyToken) => {
     }
   });
   donationsRouter.delete("/deleteDonation/:id", verifyToken, async (req, res) => {
-    console.log("DELETE /api/deleteDonation", req.params);
+    //console.log("DELETE /api/deleteDonation", req.params);
 
     const { id } = req.params;
 
@@ -186,7 +186,7 @@ const donationsRoutes = (donationCollection, verifyToken) => {
   });
 
   donationsRouter.get("/getPaginatedDonation", verifyToken, async (req, res) => {
-    console.log("GET /api/getDonationRequests", req.query);
+    //console.log("GET /api/getDonationRequests", req.query);
 
     // Destructure query parameters for pagination and filtering
     const { page = 1, limit = 10, status } = req.query;
