@@ -121,7 +121,7 @@ const donationsRoutes = (donationCollection, verifyToken) => {
         donations,
         nextCursor,
       });
-      console.log(donations,nextCursor)
+      //console.log(donations,nextCursor)
     } catch (error) {
       console.error("Error fetching donation requests:", error);
       res.status(500).json({ message: "Failed to fetch donation requests." });
@@ -131,7 +131,7 @@ const donationsRoutes = (donationCollection, verifyToken) => {
 
   // PATCH route to update a donation request's status or other fields
   donationsRouter.patch("/updateDonationRequest/:id", verifyToken, async (req, res) => {
-    console.log(`PATCH /api/updateDonationRequest/${req.params.id}`, req.body);
+    //console.log(`PATCH /api/updateDonationRequest/${req.params.id}`, req.body);
 
     const { id } = req.params;
     const { donationStatus, ...updateFields } = req.body;
