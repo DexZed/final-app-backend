@@ -5,7 +5,7 @@ const postRoute = express.Router();
 const postRoutes = (postCollection, verifyToken) => {
     // Create a new post
     postRoute.post("/createPost", verifyToken, async (req, res) => {
-        console.log("POST /api/createPost", req.body);
+        //console.log("POST /api/createPost", req.body);
 
         const { title, content, picture, status } = req.body;
 
@@ -31,7 +31,7 @@ const postRoutes = (postCollection, verifyToken) => {
 
     // Update an existing post
     postRoute.patch("/updatePost/:id", verifyToken, async (req, res) => {
-        console.log("PATCH /api/updatePost", req.params.id, req.body);
+        //console.log("PATCH /api/updatePost", req.params.id, req.body);
 
         const { id } = req.params;
         const { title, content, picture, status } = req.body;
