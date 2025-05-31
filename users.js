@@ -5,7 +5,7 @@ const userRouter = express.Router();
 const userRoutes = (userCollection,verifyToken) => {
     // Define POST endpoint for users collection with verbose logging
     userRouter.post("/createUsers", verifyToken, async (req, res) => {
-        console.log("POST /api/createUsers", req.body);
+        //console.log("POST /api/createUsers", req.body);
       
         const {userId, name, picture, email, password, bloodGroup, district, upazilla, role, status } = req.body;
       
@@ -36,7 +36,7 @@ const userRoutes = (userCollection,verifyToken) => {
       });
 
       userRouter.get("/getUser/:id", verifyToken, async (req, res) => {
-        console.log("GET /api/getUser/:id", { params: req.params });
+        //console.log("GET /api/getUser/:id", { params: req.params });
       
         const email = req.params.id;
       
@@ -46,7 +46,7 @@ const userRoutes = (userCollection,verifyToken) => {
         }
       
         try {
-          console.log("Searching for user in database with ID:", email);
+          //console.log("Searching for user in database with ID:", email);
       
           const user = await userCollection.findOne({ email });
       
@@ -55,7 +55,7 @@ const userRoutes = (userCollection,verifyToken) => {
             return res.status(404).json({ message: "User not found." });
           }
       
-          console.log("User found:", user);
+          //console.log("User found:", user);
       
           res.status(200).json({ user });
         } catch (error) {
@@ -81,7 +81,7 @@ const userRoutes = (userCollection,verifyToken) => {
         }
       
         try {
-          console.log("Attempting to update user in database with ID:", email, "and updates:", updates);
+          //console.log("Attempting to update user in database with ID:", email, "and updates:", updates);
       
           const updateResult = await userCollection.updateOne(
             { email },
@@ -93,7 +93,7 @@ const userRoutes = (userCollection,verifyToken) => {
             return res.status(404).json({ message: "User not found." });
           }
       
-          console.log("User successfully updated. Matched count:", updateResult.matchedCount, "Modified count:", updateResult.modifiedCount);
+          //console.log("User successfully updated. Matched count:", updateResult.matchedCount, "Modified count:", updateResult.modifiedCount);
       
           res.status(200).json({ message: "User updated successfully.", updateResult });
         } catch (error) {
@@ -102,10 +102,10 @@ const userRoutes = (userCollection,verifyToken) => {
         }
       });
       userRouter.get("/getAllUsers", verifyToken, async (req, res) => {
-        console.log("GET /api/getAllUsers");
+        //console.log("GET /api/getAllUsers");
       
         try {
-          console.log("Fetching all users from the database...");
+          //console.log("Fetching all users from the database...");
       
           const users = await userCollection.find({}).toArray(); // Assuming you're using MongoDB
       
@@ -114,7 +114,7 @@ const userRoutes = (userCollection,verifyToken) => {
             return res.status(404).json({ message: "No users found." });
           }
       
-          console.log("Users fetched successfully:", users);
+          //console.log("Users fetched successfully:", users);
       
           res.status(200).json({ users });
         } catch (error) {

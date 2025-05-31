@@ -52,7 +52,7 @@ const setupSessionRoutes = (sessionCollection, verifyToken) => {
       }
   
       res.clearCookie("session");
-      console.log(`[DB DELETE SUCCESS] Session cleared for Session ID: ${sessionId}`);
+      //console.log(`[DB DELETE SUCCESS] Session cleared for Session ID: ${sessionId}`);
       return res.status(200).json({ message: "Session cookie cleared and session removed from DB" });
     } catch (error) {
       console.error("[DB DELETE ERROR] Failed to remove session:", error);
