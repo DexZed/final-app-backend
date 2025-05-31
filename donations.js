@@ -5,7 +5,7 @@ const donationsRouter = express.Router();
 const donationsRoutes = (donationCollection, verifyToken) => {
 
   donationsRouter.post("/createDonation", verifyToken, async (req, res) => {
-    console.log("POST /api/createDonationRequest", req.body);
+    //console.log("POST /api/createDonationRequest", req.body);
 
     // Destructure required fields from the request body
     const {
@@ -61,13 +61,13 @@ const donationsRoutes = (donationCollection, verifyToken) => {
       // Respond with the ID of the inserted donation request
       res.status(201).json({ donationId: donationRequest.insertedId });
     } catch (error) {
-      console.error("Error creating donation request:", error);
+      //console.error("Error creating donation request:", error);
       res.status(500).json({ message: "Failed to create donation request." });
     }
   });
   // Single donation request by ID
   donationsRouter.get("/getDonationRequestById", verifyToken, async (req, res) => {
-    console.log("GET /api/getDonationRequestById", req.query);
+    //console.log("GET /api/getDonationRequestById", req.query);
 
     const { id } = req.query;
 
