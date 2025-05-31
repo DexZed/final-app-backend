@@ -33,7 +33,7 @@ const client = new MongoClient(process.env.MONGODB_URI, {
 
 
 // Middleware
-const allowedDomains = ['http://localhost:5173', 'https://anotherdomain.com'];
+const allowedDomains = ['http://localhost:5173', 'https://final-31985.web.app'];
 
 app.use(
   cors({
