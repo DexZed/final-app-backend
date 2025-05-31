@@ -24,17 +24,17 @@ const verifyToken = async (req, res, next) => {
     const authHeader = req.headers.authorization;
   
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      console.error("[AUTH ERROR] No token provided in Authorization header.");
+      //console.error("[AUTH ERROR] No token provided in Authorization header.");
       return res.status(401).json({ error: "Unauthorized: No token provided" });
     }
   
     const idToken = authHeader.split(" ")[1];
-    console.log(`[VERIFY TOKEN] Extracted ID token: ${idToken}`);
+    //console.log(`[VERIFY TOKEN] Extracted ID token: ${idToken}`);
   
     try {
       const decodedToken = await admin.auth().verifyIdToken(idToken);
       req.user = decodedToken; // Attach token details to the request object
-      console.log(`[AUTH SUCCESS] User ID: ${decodedToken.uid}`);
+      //console.log(`[AUTH SUCCESS] User ID: ${decodedToken.uid}`);
       next(); // Proceed to the next middleware/route
     } catch (error) {
       console.error("[AUTH ERROR] Token verification failed:", error);
