@@ -12,14 +12,14 @@ if (!admin.apps.length) {
 // check initialization
 try {
   const apps = admin.apps;
-  console.log("Firebase apps initialized:", apps.map((app) => app?.name));
+ // console.log("Firebase apps initialized:", apps.map((app) => app?.name));
 } catch (error) {
   console.error("Error fetching Firebase apps:", error);
 }
 
 // Middleware to verify Firebase token
 const verifyToken = async (req, res, next) => {
-    console.log("[VERIFY TOKEN] Middleware triggered.");
+   // console.log("[VERIFY TOKEN] Middleware triggered.");
   
     const authHeader = req.headers.authorization;
   
