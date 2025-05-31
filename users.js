@@ -30,7 +30,7 @@ const userRoutes = (userCollection,verifyToken) => {
       
           res.status(201).json({ userId: user.insertedId });
         } catch (error) {
-          console.error("Error creating user:", error);
+          //console.error("Error creating user:", error);
           res.status(500).json({ message: "Failed to create user" });
         }
       });
@@ -65,7 +65,7 @@ const userRoutes = (userCollection,verifyToken) => {
       });
 
       userRouter.patch("/updateUser/:id", verifyToken, async (req, res) => {
-        console.log("PATCH /api/updateUser/:id", { params: req.params, body: req.body });
+        //console.log("PATCH /api/updateUser/:id", { params: req.params, body: req.body });
       
         const email = req.params.id;
         const updates = req.body;
